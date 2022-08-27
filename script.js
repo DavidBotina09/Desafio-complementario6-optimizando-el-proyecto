@@ -1,6 +1,6 @@
 //se crea el class que servira para agrupar cada grupo de indicaciones dentro de un objeto
 class tiquetes{
-    constructor(pelicula = "",hora = "",clientes = 0,bebida = "",palomitas = "",comida = ""){
+    constructor(pelicula = "",hora = "",clientes = 0,bebida,palomitas = "",comida = ""){
         this.pelicula = pelicula
         this.hora = hora
         this.clientes = clientes
@@ -13,7 +13,6 @@ class tiquetes{
 const valorBoleta = 5000
 let reservaciones = []
 const formulario = document.getElementById("formulario")
-const tiquete = ""
 let reservacionesmostrar = []
 
 //se crea el local storage del de la tiquetera para que guarde todos los tiquetes sin que se borren
@@ -58,7 +57,7 @@ const verificarHora = (h) =>{
     }
 }
 const verificarClientes = (c) =>{
-    if((isNaN(c))||(c > 5)||(c < 1)){
+    if((c ?? 0)(isNaN(c))||(c > 5)||(c < 1)){
         cantidadClientes = null
     }
     /*if(c > 5){
