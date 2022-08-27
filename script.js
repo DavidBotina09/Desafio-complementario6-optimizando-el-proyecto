@@ -36,7 +36,6 @@ const verificarPelicula = (x) =>{
             carteleras = "Los Minions"
             break
         default:
-            alert("no ingreses peliculas que no estan en cartelera")
             carteleras = null
             break
     }
@@ -54,24 +53,22 @@ const verificarHora = (h) =>{
             horarios = "9:30"
             break
         default:
-            alert("ingresa horarios validos")
             horarios = null
             break
     }
 }
 const verificarClientes = (c) =>{
-    if(isNaN(c)){
-        alert("ingresa caracteres validos")
+    if((isNaN(c))||(c > 5)||(c < 1)){
         cantidadClientes = null
     }
-    if(c > 5){
+    /*if(c > 5){
         alert("el maximo de clientes por grupo es de 5 personas")
         cantidadClientes = null
     }
     if(c < 1){
         alert("el minimo de clientes es de 1 personas")
         cantidadClientes = null
-    }
+    }*/
 }
 
 let carteleras 
@@ -152,7 +149,6 @@ botonVentas.addEventListener(`click`, () =>{
     tickStorage.forEach((ticket,indice) =>{
         divVentas.innerHTML += `
             <div class="card" id="ticket${indice}" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">TICKETE CINE COLOMBIA</h5>
                     <p class="card-text">PELICULA:${ticket.pelicula}</p>
@@ -170,7 +166,7 @@ botonVentas.addEventListener(`click`, () =>{
 
     tickStorage.forEach((ticket,indice) =>{
         const ticketeslocales = document.getElementById(`ticket${indice}`)
-        ticketeslocales.children[1].children[8].addEventListener(`click`, () =>{
+        ticketeslocales.children[0].children[8].addEventListener(`click`, () =>{
             ticketeslocales.remove()
             reservaciones.splice(indice,1)
             localStorage.setItem(`tiquetera`, JSON.stringify(reservaciones))
