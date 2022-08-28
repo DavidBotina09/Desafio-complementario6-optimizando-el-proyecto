@@ -57,7 +57,7 @@ const verificarHora = (h) =>{
     }
 }
 const verificarClientes = (c) =>{
-    if((c ?? 0)(isNaN(c))||(c > 5)||(c < 1)){
+    if((isNaN(c))||(c > 5)||(c < 1)){
         cantidadClientes = null
     }
     /*if(c > 5){
